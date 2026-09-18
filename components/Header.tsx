@@ -121,10 +121,10 @@ const Header: React.FC = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
-            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 bg-[#f5a67c] hover:bg-[#e6986e] text-[#071113] rounded-xl font-bold shadow-md shadow-[#f5a67c]/20 transition-all text-xs lg:text-sm cursor-pointer"
+            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 bg-[#5de0cf] hover:bg-[#e6986e] text-[#071113] rounded-xl font-bold shadow-md shadow-[#f5a67c]/20 transition-all text-xs lg:text-sm cursor-pointer"
           >
             <FaGithub className="text-sm" />
-            <span>View GitHub →</span>
+            <span>View GitHub</span>
           </motion.a>
         </div>
 

@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowUp } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowUp, FaArrowRight } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -13,75 +14,68 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-[var(--bg-card)] border-t border-[var(--border-color)] pt-16 pb-8 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Top Footer CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-12 pb-12 border-b border-[var(--border-color)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
-        >
-          <div>
-            <h3 className="text-3xl sm:text-4xl font-bold text-[var(--text-main)] mb-2">
-              Have a project in mind?
-            </h3>
-            <p className="text-[var(--text-muted)] text-lg">
-              Let’s build something great together.
-            </p>
-          </div>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-500 text-white text-base font-semibold hover:bg-blue-600 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer shadow-md"
-          >
-            Get In Touch
-          </a>
-        </motion.div>
+        
 
         {/* Main Footer Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.55, delay: 0.08 }}
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-[var(--border-color)]"
         >
           {/* Column 1: Brand & Status */}
           <div className="md:col-span-5 space-y-4">
             <div>
-              <h3 className="text-3xl font-bold gradient-text mb-1">MD Rabbi Miah</h3>
-              <p className="text-base font-semibold text-[var(--text-main)] opacity-90">
-                Full-Stack Developer & CSE Student
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--text-main)] tracking-tight mb-1">
+                Md Rabbi <span className="gradient-text">Miah</span>
+              </h3>
+              <p className="text-xs sm:text-sm font-semibold text-[#48c9b0]">
+                Software Engineer · Full-Stack Developer
               </p>
             </div>
-            <p className="text-[var(--text-muted)] text-base leading-relaxed max-w-sm">
-              Building modern web experiences & scalable applications with high performance and clean architecture.
+            <p className="text-[var(--text-muted)] text-xs sm:text-sm leading-relaxed max-w-sm">
+              Architecting production-ready web platforms with Next.js, Node.js, and modern relational database systems.
             </p>
-            
-            {/* Status Badge */}
-           
+
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#48c9b0]/20 bg-[var(--bg-main)] text-[11px] font-mono text-[var(--text-muted)]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#48c9b0]" />
+              <span>Comilla, Bangladesh</span>
+            </div>
           </div>
 
           {/* Column 2: Navigation */}
           <div className="md:col-span-3">
-            <h4 className="font-semibold text-[var(--text-main)] mb-4 text-sm tracking-wider uppercase opacity-80">
+            <h4 className="font-mono text-xs uppercase tracking-[0.18em] text-[#48c9b0] font-bold mb-4">
               Navigation
             </h4>
-            <ul className="space-y-3 text-base">
+            <ul className="space-y-2.5 text-xs sm:text-sm">
               {[
                 { name: 'About', href: '#about' },
                 { name: 'Projects', href: '#projects' },
                 { name: 'Skills', href: '#skills' },
-                { name: 'Awards', href: '#awards' },
+                { name: 'Activities & Archive', href: '/activities' },
+                { name: 'Education', href: '#education' },
                 { name: 'Contact', href: '#contact' },
               ].map((link, idx) => (
                 <li key={idx}>
-                  <a
-                    href={link.href}
-                    className="text-[var(--text-muted)] hover:text-blue-500 hover:translate-x-1 inline-block transition-all duration-200 font-medium"
-                  >
-                    {link.name}
-                  </a>
+                  {link.href.startsWith('/') ? (
+                    <Link
+                      href={link.href}
+                      className="text-[var(--text-muted)] hover:text-[#48c9b0] hover:translate-x-1 inline-block transition-all duration-200 font-medium"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-[var(--text-muted)] hover:text-[#48c9b0] hover:translate-x-1 inline-block transition-all duration-200 font-medium"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -89,57 +83,58 @@ const Footer: React.FC = () => {
 
           {/* Column 3: Let's Connect */}
           <div className="md:col-span-4 space-y-4">
-            <h4 className="font-semibold text-[var(--text-main)] text-sm tracking-wider uppercase opacity-80">
+            <h4 className="font-mono text-xs uppercase tracking-[0.18em] text-[#48c9b0] font-bold mb-4">
               Let&apos;s Connect
             </h4>
-            <p className="text-[var(--text-muted)] text-base">
-              Open for internships, freelance projects, and full-time remote roles.
+            <p className="text-[var(--text-muted)] text-xs sm:text-sm leading-relaxed">
+              Open for full-time Software Engineer positions, impactful full-stack contracts, and strategic tech collaborations.
             </p>
 
             {/* Social Buttons */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2.5 pt-1">
               <a
                 href="https://github.com/shahed-hassan-fz-rabbi"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-main)] border border-[var(--border-color)] text-[var(--text-main)] text-sm font-semibold hover:border-blue-500 hover:text-blue-500 hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[var(--bg-main)] border border-[var(--border-color)] text-[var(--text-muted)] hover:text-[#48c9b0] hover:border-[#48c9b0] text-xs font-semibold hover:-translate-y-0.5 transition-all duration-200 shadow-sm"
               >
-                <FaGithub className="text-base" /> GitHub
+                <FaGithub className="text-sm" /> GitHub
               </a>
               <a
                 href="https://linkedin.com/in/shahed-hassan-fz"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-main)] border border-[var(--border-color)] text-[var(--text-main)] text-sm font-semibold hover:border-blue-500 hover:text-blue-500 hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[var(--bg-main)] border border-[var(--border-color)] text-[var(--text-muted)] hover:text-[#48c9b0] hover:border-[#48c9b0] text-xs font-semibold hover:-translate-y-0.5 transition-all duration-200 shadow-sm"
               >
-                <FaLinkedin className="text-base" /> LinkedIn
+                <FaLinkedin className="text-sm" /> LinkedIn
               </a>
               <a
-                href="mailto:shahedhassan571@gmail.com"
+                href="mailto:shahedhassan572@gmail.com"
                 aria-label="Email"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-main)] border border-[var(--border-color)] text-[var(--text-main)] text-sm font-semibold hover:border-blue-500 hover:text-blue-500 hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[var(--bg-main)] border border-[var(--border-color)] text-[var(--text-muted)] hover:text-[#48c9b0] hover:border-[#48c9b0] text-xs font-semibold hover:-translate-y-0.5 transition-all duration-200 shadow-sm"
               >
-                <FaEnvelope className="text-base" /> Email
+                <FaEnvelope className="text-sm" /> Email
               </a>
             </div>
           </div>
         </motion.div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--text-muted)]">
-          <p className="text-center sm:text-left">
-            © {currentYear} <span className="font-semibold text-[var(--text-main)]">Shahed Hassan FZ Rabbi</span>
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-muted)]">
+          <p className="text-center sm:text-left font-mono">
+            © {currentYear} <span className="font-bold text-[var(--text-main)]">Md Rabbi Miah</span>. All rights reserved.
           </p>
 
           <button
             onClick={scrollToTop}
             type="button"
             aria-label="Back to top"
-            className="inline-flex items-center gap-2 font-semibold py-2.5 px-5 rounded-full bg-[var(--bg-main)] border border-[var(--border-color)] text-[var(--text-main)] text-sm hover:border-blue-500 hover:text-blue-500 transition-all duration-200 cursor-pointer"
+            className="inline-flex items-center gap-2 font-semibold py-2 px-4 rounded-xl bg-[var(--bg-main)] border border-[var(--border-color)] text-[var(--text-muted)] hover:border-[#48c9b0] hover:text-[#48c9b0] transition-all duration-200 cursor-pointer shadow-sm text-xs"
           >
-            Back to Top <FaArrowUp className="text-xs" />
+            <span>Back to Top</span>
+            <FaArrowUp className="text-[10px]" />
           </button>
         </div>
       </div>
