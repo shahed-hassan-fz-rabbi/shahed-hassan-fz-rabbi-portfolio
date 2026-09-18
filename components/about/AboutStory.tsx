@@ -45,9 +45,7 @@ export default function AboutStory() {
           <FaArrowRight className="text-[11px] transition-transform duration-200 group-hover:translate-x-1" />
         </a>
 
-        <span className="hidden sm:inline font-handwriting text-base text-[#f5a67c]">
-          Always curious, always building ♡
-        </span>
+        
       </div>
     </div>
   );
