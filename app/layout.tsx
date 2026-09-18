@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Caveat } from "next/font/google";
 import "./globals.css";
-import ThemeToggle from "@/components/ThemeToggle";
 import AskAI from "@/components/AskAI";
 
 const geistSans = Geist({
@@ -14,9 +13,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
 export const metadata: Metadata = {
-  title: "Shahed Hassan | Frontend Web Developer",
-  description: "Portfolio website of Shahed Hassan - Frontend Web Developer",
+  title: "Md Rabbi Miah | Software Engineer · Full-Stack Developer",
+  description:
+    "Personal portfolio of Md Rabbi Miah - Software Engineer, Full-Stack Developer, and Problem Solver.",
 };
 
 export default function RootLayout({
@@ -31,9 +37,10 @@ export default function RootLayout({
       data-theme="dark"
       suppressHydrationWarning
     >
-      <body className={`${geistSans.variable} ${geistMono.variable} min-h-full flex flex-col relative antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} min-h-full flex flex-col relative antialiased`}
+      >
         {children}
-        
         <AskAI />
       </body>
     </html>
