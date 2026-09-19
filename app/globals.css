@@ -14,9 +14,16 @@
   --text-main: #0a171a;
   --text-muted: #567073;
   --border-color: #d7e5e3;
-  --color-primary: #2d9d87;
-  --color-secondary: #48c9b0;
-  --color-accent: #f5a67c;
+  --color-primary: #0f766e;
+  --color-secondary: #0d9488;
+  --color-accent: #ea580c;
+  
+  /* High-contrast readable gradient for light backgrounds */
+  --gradient-text: linear-gradient(135deg, #0f766e 0%, #0d9488 45%, #ea580c 100%);
+  --selection-bg: rgba(15, 118, 110, 0.2);
+  --selection-color: #0a171a;
+  --scrollbar-thumb: rgba(15, 118, 110, 0.25);
+  --scrollbar-thumb-hover: rgba(15, 118, 110, 0.45);
 }
 
 /* Dark Theme Variables */
@@ -29,6 +36,13 @@ html.dark {
   --color-primary: #48c9b0;
   --color-secondary: #67afa8;
   --color-accent: #f5a67c;
+  
+  /* Glowing luminous gradient for dark backgrounds */
+  --gradient-text: linear-gradient(135deg, #ffffff 0%, #48c9b0 60%, #f5a67c 100%);
+  --selection-bg: rgba(72, 201, 176, 0.25);
+  --selection-color: #ffffff;
+  --scrollbar-thumb: rgba(72, 201, 176, 0.25);
+  --scrollbar-thumb-hover: rgba(72, 201, 176, 0.5);
 }
 
 html {
@@ -44,18 +58,19 @@ body {
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Brand Gradient Text Utility */
+/* Dynamic Theme-Aware Gradient Text */
 .gradient-text {
-  background-image: linear-gradient(135deg, #ffffff 0%, #48c9b0 60%, #f5a67c 100%);
+  background-image: var(--gradient-text);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  display: inline-block;
 }
 
 /* Highlight & Selection */
 ::selection {
-  background-color: rgba(72, 201, 176, 0.25);
-  color: #ffffff;
+  background-color: var(--selection-bg);
+  color: var(--selection-color);
 }
 
 /* Custom Scrollbar */
@@ -68,10 +83,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(72, 201, 176, 0.25);
+  background: var(--scrollbar-thumb);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(72, 201, 176, 0.5);
+  background: var(--scrollbar-thumb-hover);
 }
