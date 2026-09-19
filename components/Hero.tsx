@@ -58,18 +58,7 @@ export default function Hero() {
             animate="visible"
             className="flex flex-col space-y-5 sm:space-y-6 text-center lg:text-left items-center lg:items-start"
           >
-            {/* 1. Status Indicator Pill */}
-            <motion.div variants={itemVariants}>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#48c9b0]/25 bg-[var(--bg-card)]/80 px-3.5 py-1.5 backdrop-blur-md shadow-sm">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#48c9b0] opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#48c9b0]" />
-                </span>
-                <span className="text-[11px] sm:text-xs font-medium text-[var(--text-muted)]">
-                  Open to Software Engineering Opportunities
-                </span>
-              </div>
-            </motion.div>
+           
 
             {/* 2. Main Large Name & Subtitle */}
             <motion.div variants={itemVariants} className="space-y-1.5 sm:space-y-2">
